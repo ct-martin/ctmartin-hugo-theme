@@ -1,0 +1,13 @@
+<article class="article-list">
+    <a href="{{.Permalink}}">
+        <h2>{{.Title}}</h2>
+        <p>
+            {{- .Summary | plainify | safeHTML -}}
+        </p>
+        {{- with .Date -}}
+        <p>
+            ({{.Format "2 Jan, 2006"}})
+        </p>
+        {{- end -}}
+    </a>
+</article>

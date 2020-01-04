@@ -4,7 +4,7 @@
                 <h1>Related Content</h1>
                 {{ range . }}
                     {{ with $.Site.GetPage . }}
-                        {{ partial "list-item-article" . }}
+                        {{ .Render "li" }}
                     {{ end }}
                 {{ end }}
         </div>

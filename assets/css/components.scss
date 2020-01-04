@@ -62,7 +62,7 @@ nav {
 }
 
 // List link blocks
-.article-list > a, a.list-link {
+.article-list > a, a.list-link, .taxonomy-list > a, a.list-link {
     color: $font-color;
     display: block;
     margin-bottom: 1.6em;

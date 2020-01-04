@@ -1,7 +1,8 @@
 {{ define "main" }}
-    {{ if eq .Kind "taxonomyTerm" }}
-        {{ partial "list-taxonomy-terms.html" . }}
-    {{ else }}
-        {{ partial "list-articles.html" . }}
+    <h1>{{.Title}}</h1>
+    {{ .Content }}
+    {{ range .Paginator.Pages }}
+        {{ .Render "li" }}
     {{ end }}
+    {{ template "_internal/pagination.html" . }}
 {{ end }}
