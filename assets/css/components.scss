@@ -239,3 +239,7 @@ figure {
         width: initial;
     }
 }
+
+#do-vis-here:empty::before {
+    content: 'Loading...';
+}

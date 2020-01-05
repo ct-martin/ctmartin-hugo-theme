@@ -1,0 +1,41 @@
+<script>
+const simplePie = (data, labels, colors, title, legend='right', fontSize=16, inColumn=true, aspectRatio=1.5) => {
+    const chartDiv = document.createElement('div');
+    if(!!inColumn) chartDiv.classList.add('column');
+    const chartCtr = document.createElement('div');
+    chartCtr.classList.add('chart-container');
+    const chartCanvas = document.createElement('canvas');
+    const ctx = chartCanvas.getContext('2d');
+    let chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            datasets: [{
+                data,
+                backgroundColor: colors,
+            }],
+            labels,
+        },
+        options: {
+            aspectRatio,
+            elements: {
+                arc: {
+                    borderColor: 'hsl(0,0,5%)',
+                },
+            },
+            legend: {
+                display: !!legend,
+                position: legend,
+            },
+            title: {
+                display: true,
+                fontSize,
+                fontColor: '#363636',
+                text: title,
+            },
+        },
+    });
+    chartCtr.appendChild(chartCanvas);
+    chartDiv.appendChild(chartCtr);
+    return chartDiv;
+};
+</script>

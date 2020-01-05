@@ -87,6 +87,40 @@ blockquote {
     padding-left: 1em;
 }
 
+.table-container {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    position: relative;
+    will-change: transform;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1em;
+    will-change: transform;
+
+    td, th {
+        border: 1px solid lightgrey;
+        padding: 0em 0.5em;
+    }
+
+    tbody tr:nth-child(2n) {
+        background: $background-color-code;
+    }
+
+    thead {
+        border-bottom: 2px solid lightgrey;
+        // position: sticky;
+        // top: 0;
+    }
+
+    th[scope='row'] {
+        border-right: 2px solid lightgrey;
+    }
+}
+
 /* Location-specific Typography */
 nav {
     a, a:link, a:visited, a:active, a:hover {
