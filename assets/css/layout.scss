@@ -19,7 +19,7 @@ nav {
     align-items: center;
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: $navbar-height;
 
     a {
         display: block;
