@@ -4,7 +4,7 @@
     {{ $img := first 1 (.Resources.ByType "image") }}
     {{ range $img }}
         {{ with .Fill "250x250" }}
-            <img src="{{ .RelPermalink }}" />
+            <img src="{{ .RelPermalink }}">
         {{ else }}
             <p>:(</p>
         {{ end }}

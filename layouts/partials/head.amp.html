@@ -3,9 +3,9 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
 {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 {{ end -}}
-<link rel="sitemap" href="/sitemap.xml" type="application/xml" />
+<link rel="sitemap" href="/sitemap.xml" type="application/xml">
 
 {{ partial "seo.html" . }}
 

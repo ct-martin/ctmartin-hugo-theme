@@ -1,12 +1,12 @@
-<meta name="robots" content="follow, index" />
+<meta name="robots" content="follow, index">
 
 <!-- Meta -->
-<meta name="application-name" content="{{ .Site.Title }}" />
-<meta name="author" content="{{ .Site.Params.Author }}" />
-<meta name="creator" content="{{ .Site.Params.Author }}" />
-<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+<meta name="application-name" content="{{ .Site.Title }}">
+<meta name="author" content="{{ .Site.Params.Author }}">
+<meta name="creator" content="{{ .Site.Params.Author }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 {{ .Site.Hugo.Generator }}
-<meta name="publisher" content="{{ .Site.Params.Author }}" />
+<meta name="publisher" content="{{ .Site.Params.Author }}">
 <!--
     OpenGraph
     Internal template does date, pubdate, lastmod, images, audio, videos

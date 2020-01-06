@@ -11,7 +11,7 @@
         {{- end -}}
         {{- end -}}
         {{- range .Resources.Match "*.css" }}
-            <link rel="stylesheet" href="{{ .RelPermalink }}" />
+            <link rel="stylesheet" href="{{ .RelPermalink }}">
         {{- end -}}
         {{- range .Resources.Match "*.js" }}
             <script src="{{ .RelPermalink }}"></script>
