@@ -17,6 +17,6 @@
             <script src="{{ .RelPermalink }}"></script>
         {{- end -}}
 
-        {{- with .Date }}<p><i>{{.Date.Format "2 Jan, 2006"}}</i></p>{{ end }}
+        {{- with .Date }}<p><i>{{.Format "2 Jan, 2006"}}</i></p>{{ end }}
     </article>
 {{ end }}
