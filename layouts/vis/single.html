@@ -5,18 +5,20 @@
 
         <div id="do-vis-here"></div>
 
-        {{- with .Param "libs" }}
-        {{- range . }}
-            {{ partial (printf "vis/%s.html" .) }}
-        {{- end -}}
-        {{- end -}}
-        {{- range .Resources.Match "*.css" }}
-            <link rel="stylesheet" href="{{ .RelPermalink }}">
-        {{- end -}}
         {{- range .Resources.Match "*.js" }}
             <script src="{{ .RelPermalink }}"></script>
         {{- end -}}
 
         {{- with .Date }}<p><i>{{.Format "2 Jan, 2006"}}</i></p>{{ end }}
     </article>
+{{ end }}
+{{ define "pageHead" }}
+    {{- with .Param "libs" }}
+    {{- range . }}
+        {{ partial (printf "vis/%s.html" .) }}
+    {{- end -}}
+    {{- end -}}
+    {{- range .Resources.Match "*.css" }}
+        <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- end -}}
 {{ end }}
