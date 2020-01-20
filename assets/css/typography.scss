@@ -28,12 +28,31 @@ h4 { font-size: 1.25em; }
 h5 { font-size: 1em; }
 h6 { font-size: 0.8em; }
 
+
+blockquote > ol,
+blockquote > ul,
+ol ol,
+ul ul {
+    margin-left: 1.2em;
+}
+
+ol {
+    list-style: decimal;
+
+    ol {
+        list-style: lower-alpha;
+
+        ol {
+            list-style: lower-roman;
+        }
+    }
+}
+
 ul {
     list-style: disc;
 
     ul {
         list-style: circle;
-        margin-left: 1.2em;
 
         ul {
             list-style: square;
