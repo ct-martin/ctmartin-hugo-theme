@@ -3,7 +3,7 @@
         <h2>{{.Title}}</h2>
         {{ $img := first 1 (.Resources.ByType "image") }}
         {{ range $img }}
-            {{ with .Fill "200x200" }}
+            {{ with .Fit "200x200" }}
                 <img src="{{ .RelPermalink }}">
             {{ end }}
         {{ end }}
