@@ -170,33 +170,6 @@ figure {
     }
 }
 
-@media screen and (min-width: $responsive-breakpoint) {
-    article {
-        .img-wrap {
-            display: flex;
-            flex-direction: row;
-            margin: 15px auto;
-            width: 100%;
-
-            figure {
-                margin: 0 auto;
-            }
-
-            &.has-two figure {
-                width: 50%;
-            }
-
-            &.has-three figure {
-                width: 33.33%;
-            }
-
-            &.has-four figure {
-                width: 25%;
-            }
-        }
-    }
-}
-
 // https://css-tricks.com/piecing-together-approaches-for-a-css-masonry-layout/
 // https://stackoverflow.com/questions/30330845/flexbox-image-scale-to-height-and-keep-aspect-ratio#30332885
 .album-image-previews {
