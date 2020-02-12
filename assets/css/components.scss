@@ -74,6 +74,12 @@ nav {
         text-decoration: none;
     }
 
+    &::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
     :first-child {
         margin-top: 0;
     }
@@ -88,6 +94,7 @@ nav {
     @media screen and (min-width: $responsive-breakpoint) {
         img {
             float: left;
+            margin-right: 1em;
         }
     }
 }
