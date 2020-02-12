@@ -28,6 +28,12 @@ nav {
 }
 main {
     flex: 1 0 auto;
+
+    article:only-of-type {
+        :last-child {
+            margin-bottom: 1em;
+        }
+    }
 }
 
 aside {
