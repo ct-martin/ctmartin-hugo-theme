@@ -28,14 +28,9 @@ h4 { font-size: 1.25em; }
 h5 { font-size: 1em; }
 h6 { font-size: 0.8em; }
 
-
-blockquote > ol,
-blockquote > ul,
-ol ol,
-ol ul,
-ul ol,
-ul ul {
-    margin-left: 1.2em;
+ol, ul {
+    margin-left: 40px; // browser default pre-reset
+    //margin-left: 1.4em; // playing with for more condensed feel
 }
 
 ol {
