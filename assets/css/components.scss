@@ -234,3 +234,17 @@ figure {
 #do-vis-here:empty::before {
     content: 'Loading...';
 }
+
+.recipe-card {
+    border: 1px solid $font-color;
+    margin-top: 1em;
+    padding: 1em;
+
+    &>h2 {
+        margin-top: 0;
+    }
+
+    &>:last-child {
+        margin-bottom: 0;
+    }
+}

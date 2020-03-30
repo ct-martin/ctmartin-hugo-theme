@@ -1,0 +1,38 @@
+<article class="recipe-card">
+  <script type="application/ld+json">
+  {{- $ld := dict "@context" "http://schema.org" "@type" "Recipe" "description" (.Summary | plainify) "name" .Title "recipeIngredient" .Params.ingredients "recipeInstructions" .Params.instructions -}}
+  {{- $ld := merge $ld (cond (isset .Params "cooktime") (dict "cookTime" (print "PT" (replace (upper .Params.cookTime) " " ""))) dict) -}}
+  {{- $ld := merge $ld (cond (isset . "date") (dict "datePublished" (.Date.Format "2006-01-02")) dict) -}}
+  {{- $ld := merge $ld (cond (ge (len (.Resources.ByType "image")) 1) (dict "image" (index (.Resources.ByType "image") 0).Permalink) dict) -}}
+  {{- $ld := merge $ld (cond (isset .Params "preptime") (dict "prepTime" (print "PT" (replace (upper .Params.prepTime) " " ""))) dict) -}}
+  {{- $ld := merge $ld (cond (isset .Params "yield") (dict "yield" .Params.yield) dict) -}}
+  {{ $ld | jsonify | safeJS }}
+  </script>
+
+  <h2>{{ .Title }}</h2>
+  {{ if or (isset .Params "preptime") (or (isset .Params "cooktime") (isset .Params "yield"))}}
+  <p>
+    {{- $fields := slice -}}
+    {{- $fields = $fields | append (cond (isset .Params "preptime") (print "Prep Time: " (replace (lower .Params.prepTime) " " "")) slice)}}
+    {{- $fields = $fields | append (cond (isset .Params "cooktime") (print "Cook Time: " (replace (lower .Params.cookTime) " " "")) slice)}}
+    {{- $fields = $fields | append (cond (isset .Params "yield") (print "Yield: " .Params.yield) slice)}}
+    {{ delimit $fields " - "}}
+  </p>
+  {{ end }}
+  <h3>Ingredients</h3>
+  <ul>
+    {{ with .Params.ingredients }}
+      {{ range . }}
+        <li>{{ . }}</li>
+      {{ end }}
+    {{ end }}
+  </ul>
+  <h3>Instructions</h3>
+  <ol>
+    {{ with .Params.instructions }}
+      {{ range . }}
+        <li>{{ . }}</li>
+      {{ end }}
+    {{ end }}
+  </ol>
+</article>
