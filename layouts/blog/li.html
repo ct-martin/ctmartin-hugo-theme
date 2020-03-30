@@ -1,6 +1,10 @@
 <article class="article-list">
     <a href="{{.Permalink}}">
         <h2>{{.Title}}</h2>
+        {{ if ge (len (.Resources.ByType "image")) 1}}
+            {{ $img := index (.Resources.ByType "image") 0 }}
+            <img src="{{ ($img.Fit "200x200").RelPermalink }}">
+        {{ end }}
         <p>
             {{- .Summary | plainify | safeHTML -}}
         </p>

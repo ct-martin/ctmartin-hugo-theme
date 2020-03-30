@@ -1,12 +1,8 @@
 {{ $albumurl := .Permalink }}
 <a class="list-link" href="{{ $albumurl }}">
-    {{ $img := first 1 (.Resources.ByType "image") }}
-    {{ range $img }}
-        {{ with .Fill "200x200" }}
-            <img src="{{ .RelPermalink }}">
-        {{ else }}
-            <p>:(</p>
-        {{ end }}
+    {{ if ge (len (.Resources.ByType "image")) 1}}
+        {{ $img := index (.Resources.ByType "image") 0 }}
+        <img src="{{ ($img.Fit "200x200").RelPermalink }}">
     {{ end }}
     <strong>{{ .Title }}</strong>
 </a>
