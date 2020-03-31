@@ -5,6 +5,7 @@
   {{- $ld := merge $ld (cond (isset . "date") (dict "datePublished" (.Date.Format "2006-01-02")) dict) -}}
   {{- $ld := merge $ld (cond (ge (len (.Resources.ByType "image")) 1) (dict "image" (index (.Resources.ByType "image") 0).Permalink) dict) -}}
   {{- $ld := merge $ld (cond (isset .Params "preptime") (dict "prepTime" (print "PT" (replace (upper .Params.prepTime) " " ""))) dict) -}}
+  {{- $ld := merge $ld (cond (isset .Params "totaltime") (dict "totalTime" (print "PT" (replace (upper .Params.totalTime) " " ""))) dict) -}}
   {{- $ld := merge $ld (cond (isset .Params "yield") (dict "yield" .Params.yield) dict) -}}
   {{ $ld | jsonify | safeJS }}
   </script>
@@ -15,6 +16,7 @@
     {{- $fields := slice -}}
     {{- $fields = $fields | append (cond (isset .Params "preptime") (print "Prep Time: " (replace (lower .Params.prepTime) " " "")) slice)}}
     {{- $fields = $fields | append (cond (isset .Params "cooktime") (print "Cook Time: " (replace (lower .Params.cookTime) " " "")) slice)}}
+    {{- $fields = $fields | append (cond (isset .Params "totaltime") (print "Total Time: " (replace (lower .Params.totalTime) " " "")) slice)}}
     {{- $fields = $fields | append (cond (isset .Params "yield") (print "Yield: " .Params.yield) slice)}}
     {{ delimit $fields " - "}}
   </p>
