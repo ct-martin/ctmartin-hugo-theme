@@ -2,6 +2,9 @@
 <html amp lang="{{ .Site.LanguageCode }}">
     <head>
         {{- partial "head.amp.html" . -}}
+        {{- block "jsonld" . }}
+            {{- partial "seo-jsonld.html" . -}}
+        {{- end }}
         {{- block "pageHead" . }}{{- end }}
     </head>
     <body>

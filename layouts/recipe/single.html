@@ -10,3 +10,15 @@
 {{ define "aside" }}
     {{ partial "page-related" . }}
 {{ end }}
+{{ define "jsonld" }}
+    <script type="application/ld+json">
+        {{- $ld := dict "@context" "http://schema.org" "@type" "Recipe" "description" (.Summary | plainify) "name" .Title "recipeIngredient" .Params.ingredients "recipeInstructions" .Params.instructions -}}
+        {{- $ld := merge $ld (cond (isset .Params "cooktime") (dict "cookTime" (print "PT" (replace (upper .Params.cookTime) " " ""))) dict) -}}
+        {{- $ld := merge $ld (cond (isset . "date") (dict "datePublished" (.Date.Format "2006-01-02")) dict) -}}
+        {{- $ld := merge $ld (cond (ge (len (.Resources.ByType "image")) 1) (dict "image" (index (.Resources.ByType "image") 0).Permalink) dict) -}}
+        {{- $ld := merge $ld (cond (isset .Params "preptime") (dict "prepTime" (print "PT" (replace (upper .Params.prepTime) " " ""))) dict) -}}
+        {{- $ld := merge $ld (cond (isset .Params "totaltime") (dict "totalTime" (print "PT" (replace (upper .Params.totalTime) " " ""))) dict) -}}
+        {{- $ld := merge $ld (cond (isset .Params "yield") (dict "recipeYield" .Params.yield) dict) -}}
+        {{ $ld | jsonify | safeJS }}
+    </script>
+{{ end }}

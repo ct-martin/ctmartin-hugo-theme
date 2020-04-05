@@ -2,6 +2,9 @@
 <html lang="{{ .Site.LanguageCode }}">
     <head>
         {{- partial "head.html" . -}}
+        {{- block "jsonld" . }}
+            {{- partial "seo-jsonld.html" . -}}
+        {{- end }}
         {{- block "pageHead" . }}{{- end }}
     </head>
     <body>
