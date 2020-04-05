@@ -134,6 +134,11 @@ nav {
 }
 
 // Figures/Images
+img {
+    display: block;
+    margin: 0 auto;
+    max-height: 400px;
+}
 figure {
     display: block;
     margin: 15px auto;
@@ -151,12 +156,6 @@ figure {
                 object-fit: contain;
             }
         }
-    }
-
-    img {
-        display: block;
-        margin: 0 auto;
-        max-height: 400px;
     }
 
     figcaption {
