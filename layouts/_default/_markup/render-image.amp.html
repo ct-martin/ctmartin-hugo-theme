@@ -1,0 +1,28 @@
+{{ with .Title }}
+<figure class="amp-figure">
+  <div class="amp-img-container">
+    <amp-img
+      alt="{{.Text}}"
+      layout="fill"
+      src="{{ .Destination | safeURL }}"
+    >
+      <noscript>
+          <img src="{{ .Destination | safeURL }}" alt="{{.Text}}" />
+      </noscript>
+    </amp-img>
+  </div>
+  <figcaption>
+    <p>{{ .Title }}</p>
+  </figcaption>
+</figure>
+{{ else }}
+<amp-img
+  alt="{{.Text}}"
+  layout="fill"
+  src="{{ .Destination | safeURL }}"
+>
+  <noscript>
+      <img src="{{ .Destination | safeURL }}" alt="{{.Text}}" />
+  </noscript>
+</amp-img>
+{{ end }}
