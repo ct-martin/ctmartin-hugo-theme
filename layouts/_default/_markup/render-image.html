@@ -1,4 +1,4 @@
-{{ with .Title }}
+{{ if ne .Title "" }}
 <figure>
   <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
   <figcaption>{{.Title}}</figcaption>
