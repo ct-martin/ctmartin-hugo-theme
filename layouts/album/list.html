@@ -1,10 +1,24 @@
 {{ define "main" }}
     <h1>{{.Title}}</h1>
     {{ .Content }}
-    <div class="list-album-previews">
+    {{ if and (isset .Params "album_fancylist") (eq .Params.album_fancylist true) }}
+        <div class="list-album-previews">
+            {{ range .Paginator.Pages }}
+                {{ if eq .Type "album" }}
+                    <a class="list-link" href="{{ .RelPermalink }}">
+                        {{ if ge (len (.Resources.ByType "image")) 1}}
+                            {{ $img := index (.Resources.ByType "image") 0 }}
+                            <img src="{{ ($img.Fill "200x200").RelPermalink }}">
+                        {{ end }}
+                        <strong>{{ .Title }}</strong>
+                    </a>
+                {{ end }}
+            {{ end }}
+        </div>
+    {{ else }}
         {{ range .Paginator.Pages }}
             {{ .Render "li" }}
         {{ end }}
-    </div>
+    {{ end }}
     {{ template "_internal/pagination.html" . }}
 {{ end }}
