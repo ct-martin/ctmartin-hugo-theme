@@ -9,7 +9,7 @@
                 {{- .Page.Summary | plainify | safeHTML -}}
             </p>
             <p>
-                ({{ .Count }} articles)
+                ({{ .Count }} items; last {{ (index .WeightedPages 0).Date.Format "Jan 02, 2006" }})
             </p>
         </a>
     </article>
