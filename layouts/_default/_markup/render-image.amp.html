@@ -1,13 +1,14 @@
+{{ $dest := (cond (strings.HasPrefix .Destination "http") .Destination (cond (strings.HasPrefix .Destination "/") (replace .Destination "amp/" "") (replace (printf "%s%s" .Page.RelPermalink .Destination) "amp/" ""))) }}
 {{ if ne .Title "" }}
 <figure class="amp-figure">
   <div class="amp-img-container">
     <amp-img
       alt="{{.Text}}"
       layout="fill"
-      src="{{ (cond (strings.HasPrefix .Destination "http") .Destination (replace .Destination "amp/" "")) | safeURL }}"
+      src="{{ $dest | safeURL }}"
     >
       <noscript>
-          <img src="{{ (cond (strings.HasPrefix .Destination "http") .Destination (replace .Destination "amp/" "")) | safeURL }}" alt="{{.Text}}" />
+          <img src="{{ $dest | safeURL }}" alt="{{.Text}}" />
       </noscript>
     </amp-img>
   </div>
@@ -19,10 +20,10 @@
 <amp-img
   alt="{{.Text}}"
   layout="fill"
-  src="{{ (cond (strings.HasPrefix .Destination "http") .Destination (replace .Destination "amp/" "")) | safeURL }}"
+  src="{{ $dest | safeURL }}"
 >
   <noscript>
-      <img src="{{ (cond (strings.HasPrefix .Destination "http") .Destination (replace .Destination "amp/" "")) | safeURL }}" alt="{{.Text}}" />
+      <img src="{{ $dest | safeURL }}" alt="{{.Text}}" />
   </noscript>
 </amp-img>
 {{ end }}

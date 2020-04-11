@@ -1,8 +1,9 @@
+{{ $dest := (cond (strings.HasPrefix .Destination "http") .Destination (cond (strings.HasPrefix .Destination "/") (replace .Destination "amp/" "") (replace (printf "%s%s" .Page.RelPermalink .Destination) "amp/" ""))) }}
 {{ if ne .Title "" }}
 <figure>
-  <img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+  <img src="{{ $dest | safeURL }}" alt="{{ .Text }}" />
   <figcaption>{{.Title}}</figcaption>
 </figure>
 {{ else }}
-<img src="{{ .Destination | safeURL }}" alt="{{ .Text }}" />
+<img src="{{ $dest | safeURL }}" alt="{{ .Text }}" />
 {{ end }}
