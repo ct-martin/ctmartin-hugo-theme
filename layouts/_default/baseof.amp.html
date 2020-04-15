@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html amp lang="{{ .Site.LanguageCode }}">
     <head>
-        {{- partial "head.amp.html" . -}}
+        {{- partial "layout/head.amp.html" . -}}
         {{- block "jsonld" . }}
             {{- partial "seo-jsonld.html" . -}}
         {{- end }}
         {{- block "pageHead" . }}{{- end }}
     </head>
     <body>
-        {{- partial "header.amp.html" . -}}
+        {{- partial "layout/header.amp.html" . -}}
         <main class="container">
             {{- block "main" . }}{{- end }}
         </main>
         {{- block "aside" . }}{{- end }}
-        {{- partial "footer.html" . -}}
+        {{- partial "layout/footer.html" . -}}
     </body>
 </html>

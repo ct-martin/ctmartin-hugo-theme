@@ -4,11 +4,11 @@
         {{ with .Date }}<i>{{.Format "2 Jan, 2006"}}</i>{{ end }}
         {{ .Content }}
 
-        {{ partial "recipe" . }}
+        {{ partial "components/recipe" . }}
     </article>
 {{ end }}
 {{ define "aside" }}
-    {{ partial "page-related" . }}
+    {{ partial "layout/page-related" . }}
 {{ end }}
 {{ define "jsonld" }}
     <script type="application/ld+json">
