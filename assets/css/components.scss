@@ -95,6 +95,9 @@ nav {
         img {
             float: left;
             margin-right: 1em;
+            max-height: 200px;
+            object-fit: contain;
+            width: 200px;
         }
     }
 }
