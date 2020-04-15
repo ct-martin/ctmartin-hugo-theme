@@ -3,11 +3,20 @@
         <h2>{{.Title}}</h2>
         {{ if ge (len (.Resources.ByType "image")) 1}}
             <div class="list-image">
+                {{ $img := index (.Resources.ByType "image") 0 }}
                 <!--
                     The preview image is essentially decorative and there's no wey to describe it b/c we lack context.
                     Use an empty `alt` attribute to tell screen readers to ignore.
                 -->
-                <img src="{{ ((index (.Resources.ByType "image") 0).Fit "200x200").RelPermalink }}" alt="" />
+                <amp-img
+                    alt=""
+                    layout="fill"
+                    src="{{ ($img.Fit "200x200").RelPermalink | safeURL }}"
+                >
+                    <noscript>
+                        <img src="{{ ($img.Fit "200x200").RelPermalink | safeURL }}" alt="" />
+                    </noscript>
+                </amp-img>
             </div>
         {{ end }}
         <p>

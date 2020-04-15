@@ -92,12 +92,16 @@ nav {
     }
 
     @media screen and (min-width: $responsive-breakpoint) {
-        img {
+        .list-image {
             float: left;
             margin-right: 1em;
             max-height: 200px;
-            object-fit: contain;
+            position: relative;
             width: 200px;
+
+            img {
+                object-fit: contain;
+            }
         }
     }
 }

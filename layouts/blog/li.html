@@ -2,8 +2,9 @@
     <a href="{{.RelPermalink}}">
         <h2>{{.Title}}</h2>
         {{ if ge (len (.Resources.ByType "image")) 1}}
-            {{ $img := index (.Resources.ByType "image") 0 }}
-            <img src="{{ ($img.Fit "200x200").RelPermalink }}">
+            <div class="list-image">
+                <img src="{{ ((index (.Resources.ByType "image") 0).Fit "200x200").RelPermalink }}" alt="" />
+            </div>
         {{ end }}
         <p>
             {{- .Summary | plainify | safeHTML -}}
