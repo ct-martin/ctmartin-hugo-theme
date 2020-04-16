@@ -1,0 +1,9 @@
+{{ $ld := dict "@type" "ItemList" "url" .Permalink }}
+{{ $pages := (cond (eq .Kind "home") .Site.RegularPages .RegularPages)}}
+{{ $ld = merge $ld (dict "numberOfItems" (len $pages)) }}
+{{ $items := slice }}
+{{ range $i, $pg := $pages }}
+  {{ $items = append $items (slice (dict "@type" "ListItem" "position" (add $i 1) "item" (partial "schema-jsonld" (dict "page" $pg "li" true)))) }}
+{{ end }}
+{{ $ld = merge $ld (dict "itemListElement" $items)}}
+{{ return $ld }}

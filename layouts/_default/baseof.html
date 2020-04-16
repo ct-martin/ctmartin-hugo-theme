@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
     <head>
-        {{- partial "layout/head.html" . -}}
-        {{- block "jsonld" . }}
-            {{- partial "seo-jsonld.html" . -}}
-        {{- end }}
+        {{- partial "layout/head.html" . }}
+        <script type="application/ld+json">
+        {{- block "jsonld" . -}}
+            {{ partial "schema-jsonld" (dict "schema" "webpage" "page" .) | safeJS }}
+        {{- end -}}
+        </script>
         {{- block "pageHead" . }}{{- end }}
     </head>
     <body>

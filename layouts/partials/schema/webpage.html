@@ -1,0 +1,3 @@
+{{ $ld := dict "@type" "WebPage" "description" (.Summary | plainify | chomp) "name" .Title "url" .Permalink }}
+{{ with .Date }}{{ $ld = merge $ld (dict "datePublished" (.Format "2006-01-02")) }}{{ end }}
+{{ return $ld }}

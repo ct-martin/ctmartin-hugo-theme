@@ -1,1 +1,9 @@
-{{ .Render "list" }}
+{{ define "main" }}
+    <h1>{{.Title}}</h1>
+    {{ .Content }}
+    {{ range .Paginator.Pages }}
+        {{ .Render "li" }}
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+{{ end }}
+{{ define "jsonld" }}{{ partial "schema-jsonld" (dict "schema" "website" "page" .) | safeJS }}{{ end }}

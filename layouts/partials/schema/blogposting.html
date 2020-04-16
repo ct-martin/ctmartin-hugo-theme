@@ -1,0 +1,5 @@
+{{ $ld := dict "@type" "BlogPosting" "description" (.Summary | plainify | chomp) "headline" .Title }}
+{{ with .Date }}{{ $ld = merge $ld (dict "datePublished" (.Format "2006-01-02")) }}{{ end }}
+{{ $ld = merge $ld (cond (ge (len (.Resources.ByType "image")) 1) (dict "image" (replace ((index (.Resources.ByType "image") 0).Permalink) "amp/" "")) dict) }}
+{{ $ld = merge $ld (dict "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)) }}
+{{ return $ld }}

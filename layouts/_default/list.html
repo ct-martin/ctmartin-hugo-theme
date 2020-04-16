@@ -6,3 +6,4 @@
     {{ end }}
     {{ template "_internal/pagination.html" . }}
 {{ end }}
+{{ define "jsonld" }}{{ partial "schema-jsonld" (dict "schema" "itemlist" "page" .) | safeJS }}{{ end }}

@@ -1,0 +1,4 @@
+[
+  {{ partial "schema-jsonld" (dict "schema" "website" "page" .) }},
+  {{ partial "schema-jsonld" (dict "schema" "itemlist" "page" .) }}
+]

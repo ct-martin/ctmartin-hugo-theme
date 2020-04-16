@@ -1,0 +1,15 @@
+{{ $ld := dict }}
+{{ if eq (.li | default false) false }}{{ $ld = merge $ld (dict "@context" "https://schema.org") }}{{ end }}
+{{ if (isset . "schema") }}{{ $ld = merge $ld (partial (printf "schema/%s" .schema) .page) }}
+{{ else }}
+  {{ with .page }}
+    {{ if eq .Kind "404" }}{{/* no-op; do nothing */}}
+    {{ else if eq .Kind "home" }}{{ $ld = merge $ld (partial "schema/website" .) }}
+    {{ else if ne .Kind "page" }}{{ $ld = merge $ld (partial "schema/itemlist" .) }}
+    {{ else if eq .Type "album" }}{{ $ld = merge $ld (partial "schema/imagegallery" .) }}
+    {{ else if eq .Type "recipe" }}{{ $ld = merge $ld (partial "schema/recipe" .) }}
+    {{ else if eq .Type "blog" }}{{ $ld = merge $ld (partial "schema/blogposting" .) }}
+    {{ else }}{{ $ld = merge $ld (partial "schema/webpage" .) }}{{ end }}
+  {{ end }}
+{{ end }}
+{{ return (cond (eq (.li | default false) false) ($ld | jsonify) $ld) }}

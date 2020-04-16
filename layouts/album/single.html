@@ -37,3 +37,4 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.1.0/dist/lg-thumbnail.min.js" integrity="sha256-6rMa+PkINberZ0st0kdIQQObwBAiqjEvgN3m4i/eWNc=" crossorigin="anonymous"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.0.1/dist/lg-zoom.min.js" integrity="sha256-46fmu0pp+GJ2VLqeCrElKXG8+0AFONuwYF25ozQs5bk=" crossorigin="anonymous"></script>
 {{ end }}
+{{ define "jsonld" }}{{ partial "schema-jsonld" (dict "schema" "imagegallery" "page" .) | safeJS }}{{ end }}

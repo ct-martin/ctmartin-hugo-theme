@@ -1,0 +1,1 @@
+{{ partial "schema-jsonld" (dict "schema" "recipe" "page" .) }}
