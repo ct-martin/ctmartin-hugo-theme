@@ -1,7 +1,9 @@
-html, body {
+// Nuxt layout:
+//   html > body > #__nuxt > #__layout > div > ...
+html, body, #__nuxt, #__layout, #__layout>div {
     height: 100%;
 }
-body {
+body:not(#__nuxt_body), #__layout>div {
     display: flex;
     flex-direction: column;
     padding-top: 50px;
