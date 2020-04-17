@@ -254,3 +254,20 @@ figure {
         margin-bottom: 0;
     }
 }
+
+.btn {
+    background: $background-color-inverse;
+    border: 1px solid $background-color-inverse;
+    border-radius: 10px;
+    color: $font-color-inverse;
+    display: inline-block;
+    font-size: small;
+    margin-left: 8px;
+    padding: 0.25em 0.5em;
+
+    &.btn-inverse {
+        background: $background-color;
+        border: 1px solid $background-color-inverse;
+        color: $font-color;
+    }
+}
