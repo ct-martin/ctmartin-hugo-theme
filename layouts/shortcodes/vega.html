@@ -1,0 +1,2 @@
+<div id="vega-{{ .Get "id" }}"></div>
+<script>vegaEmbed('#vega-{{ .Get "id" }}', {{ .Inner | safeJS }})</script>
