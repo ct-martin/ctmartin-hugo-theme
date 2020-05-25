@@ -3,8 +3,6 @@
         <h1>{{.Title}}</h1>
         {{ with .Date }}<i>{{.Format "2 Jan, 2006"}}</i>{{ end }}
         {{ .Content }}
-
-        {{ partial "components/recipe" . }}
     </article>
 {{ end }}
 {{ define "aside" }}
