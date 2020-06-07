@@ -7,6 +7,14 @@
             {{ partial "schema-jsonld" (dict "schema" "recipe" "page" .) | safeJS }}
         {{- end -}}
         </script>
+        {{- with (union (.Site.Params.libs) (.Param "libs")) }}
+        {{- range . }}
+            {{ partial (printf "vis/%s.amp.html" .) }}
+        {{- end -}}
+        {{- end -}}
+        {{- range .Resources.Match "*.css" }}
+            <link rel="stylesheet" href="{{ .RelPermalink }}">
+        {{- end -}}
         {{- block "pageHead" . }}{{- end }}
     </head>
     <body>
