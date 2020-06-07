@@ -1,0 +1,14 @@
+{{ with $.Page }}
+<div class="slide-deck">
+  <div class="reveal">
+    <div class="slides">
+      {{ $deck := print ((.Resources.GetMatch "slides.md").Content) | replace "\r\n" "\n" }}
+      {{ range $i, $slide := split $deck "\n<hr>\n" }}
+        <section>
+          {{ $slide | safeHTML }}
+        </section>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

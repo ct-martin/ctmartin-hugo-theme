@@ -271,3 +271,51 @@ figure {
         color: $font-color;
     }
 }
+
+// Slide embeds
+// Adapted from Bootstrap resposive embeds (16x9)
+// https://github.com/twbs/bootstrap/blob/v4.5.0/scss/utilities/_embed.scss
+.slide-deck {
+    display: block;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    width: 100%;
+
+    &::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+    }
+
+    amp-carousel, .reveal {
+        background-color: $background-color-code;
+        border: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    amp-carousel section {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+
+        div {
+            display: inline-block;
+            vertical-align: middle;
+
+            :first-child {
+                margin-top: 0;
+            }
+
+            :last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

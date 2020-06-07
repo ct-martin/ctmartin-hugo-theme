@@ -1,0 +1,14 @@
+{{ with $.Page }}
+<div class="slide-deck">
+  <amp-carousel height="720" layout="responsive" type="slides" width="1280">
+    {{ $deck := print ((.Resources.GetMatch "slides.md").Content) | replace "\r\n" "\n" }}
+    {{ range $i, $slide := split $deck "\n<hr>\n" }}
+      <section>
+        <div>
+          {{ $slide | safeHTML }}
+        </div>
+      </section>
+    {{ end }}
+  </amp-carousel>
+</div>
+{{ end }}
