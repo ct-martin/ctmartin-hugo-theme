@@ -91,6 +91,11 @@ nav {
         font-size: 0.9em;
     }
 
+    .list-image img {
+        max-height: 200px;
+        max-width: 200px;
+    }
+
     @media screen and (min-width: $responsive-breakpoint) {
         .list-image {
             float: left;
