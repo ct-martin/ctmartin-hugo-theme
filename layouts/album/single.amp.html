@@ -7,7 +7,7 @@
             {{ $resources := .Resources.ByType "image" }}
             {{ range $i, $img := $resources }}
                 {{ with (imageConfig (printf "/%s" (replace $img.RelPermalink "amp/" "content/"))) }}
-                        <amp-img lightbox src="{{ (replace $img.RelPermalink "amp/" "") }}" width="{{ .Width }}" height="{{ .Height }}" layout="intrinsic"></amp-img>
+                        <amp-img lightbox src="{{ (replace $img.RelPermalink "/amp/" "/") }}" width="{{ .Width }}" height="{{ .Height }}" layout="intrinsic"></amp-img>
             {{ end }}
             {{ end }}
         </div>

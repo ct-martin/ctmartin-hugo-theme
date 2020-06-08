@@ -1,4 +1,4 @@
-{{ $dest := (cond (strings.HasPrefix .Destination "http") .Destination (cond (strings.HasPrefix .Destination "/") (replace .Destination "amp/" "") (replace (printf "%s%s" .Page.RelPermalink .Destination) "amp/" ""))) }}
+{{ $dest := (cond (strings.HasPrefix .Destination "http") .Destination (cond (strings.HasPrefix .Destination "/") (replace .Destination "/amp/" "/") (replace (printf "%s%s" .Page.RelPermalink .Destination) "/amp/" "/"))) }}
 {{ if ne .Title "" }}
 <figure class="amp-figure">
   <div class="amp-img-container">
