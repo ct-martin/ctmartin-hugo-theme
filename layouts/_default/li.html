@@ -7,7 +7,7 @@
                     The preview image is essentially decorative and there's no wey to describe it b/c we lack context.
                     Use an empty `alt` attribute to tell screen readers to ignore.
                 -->
-                <img src="{{ ((index (.Resources.ByType "image") 0).Fit "200x200").RelPermalink }}" alt="" />
+                <img src="{{ ((index (.Resources.ByType "image") 0).Fit "200x200 jpg").RelPermalink }}" alt="" />
             </div>
         {{ end }}
         <p>
