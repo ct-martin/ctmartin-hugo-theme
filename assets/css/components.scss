@@ -242,10 +242,18 @@ figure {
     }
 }
 
+// Visualization placeholder
 #do-vis-here:empty::before {
     content: 'Loading...';
 }
 
+// Mermaid fix (force scale down)
+.mermaid>svg {
+    max-width: 100%;
+    height: unset;
+}
+
+// Recipe Cards (from front matter)
 .recipe-card {
     border: 1px solid $font-color;
     margin-top: 1em;
