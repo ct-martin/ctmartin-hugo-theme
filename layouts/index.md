@@ -1,3 +1,4 @@
+### {{ .Title }}
 {{ .RawContent }}
 Recent Content:
 {{- range first 5 .Site.RegularPages }}
