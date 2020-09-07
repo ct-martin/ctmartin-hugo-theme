@@ -1,9 +1,13 @@
 <article class="article-list">
     <a href="{{.RelPermalink}}">
-        <h2>{{.Title}}</h2>
+        <h3>{{ partial "emoji-title.html" . }}</h3>
         {{ if ge (len (.Resources.ByType "image")) 1}}
             <div class="list-image">
-                <img src="{{ ((index (.Resources.ByType "image") 0).Fit "200x200").RelPermalink }}" alt="" />
+                <!--
+                    The preview image is essentially decorative and there's no wey to describe it b/c we lack context.
+                    Use an empty `alt` attribute to tell screen readers to ignore.
+                -->
+                <img src="{{ ((index (.Resources.ByType "image") 0).Fit "200x200 jpg").RelPermalink }}" alt="" />
             </div>
         {{ end }}
         <p>

@@ -1,6 +1,7 @@
 {{ define "main" }}
     <h1>{{.Title}}</h1>
     {{ .Content }}
+    <h2>Latest Posts</h2>
     {{ range .Paginator.Pages }}
         {{ .Render "li" }}
     {{ end }}

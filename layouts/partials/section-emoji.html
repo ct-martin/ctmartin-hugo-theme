@@ -2,10 +2,10 @@
 {{ if eq .Kind "404" }}{{/* no-op; do nothing */}}
 {{ else if eq .Kind "home" }}{{ $emoji = "💻" }}
 {{ else if ne .Kind "page" }}{{ $emoji = "📂" }}
-{{ else if eq .Type "album" }}{{ $emoji = "🖼" }}
-{{ else if eq .Type "recipe" }}{{ $emoji = "🥞" }}
-{{ else if eq .Type "blog" }}{{ $emoji = "📝" }}
-{{ else if eq .Type "vis" }}{{ $emoji = "📈" }}
+{{ else if eq .Section "album" }}{{ $emoji = "🖼" }}
+{{ else if eq .Section "food" }}{{ $emoji = "🥞" }}
+{{ else if eq .Section "blog" }}{{ $emoji = "📝" }}
+{{ else if eq .Section "vis" }}{{ $emoji = "📈" }}
 {{ else }}{{/* no-op; do nothing */}}
 {{ end }}
 {{ if ne $emoji "" }}{{ $emoji = printf "%s " $emoji }}{{ end }}

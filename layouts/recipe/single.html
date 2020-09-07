@@ -1,6 +1,6 @@
 {{ define "main" }}
     <article>
-        <h1>{{.Title}}</h1>
+        <h1>{{ partial "emoji-title.html" . }}</h1>
         {{ with .Date }}<i>{{.Format "2 Jan, 2006"}}</i>{{ end }}
         {{ .Content }}
     </article>
