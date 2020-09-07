@@ -98,7 +98,10 @@ a.disabled, .disabled a {
 }
 
 hr {
-    color: $font-color;
+    border-bottom: 1px solid $border-color-light;
+    border-left: none;
+    border-right: none;
+    border-top: none;
     margin: 1em 0;
 }
 

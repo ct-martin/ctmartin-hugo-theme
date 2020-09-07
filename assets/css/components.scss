@@ -62,50 +62,63 @@ nav {
 }
 
 // List link blocks
-.article-list > a, a.list-link, .taxonomy-list > a, a.list-link {
+.article-list, .list-album-previews, .taxonomy-list {
     clear: both;
-    color: $font-color;
-    display: block;
-    margin-bottom: 1.6em;
-    text-decoration: none;
-    width: 100%;
+    border-bottom: 1px solid $border-color-light;
+    padding-bottom: 0.8em;
+    padding-top: 0.8em;
 
-    &:hover {
-        text-decoration: none;
+    &:last-of-type {
+        border-bottom: none;
     }
 
-    &::after {
-        content: "";
-        clear: both;
+    /* &:not(:first-of-type) {
+        border-top: 1px solid $border-color-light;
+    } */
+
+    > a {
+        color: $font-color;
         display: block;
-    }
-
-    :first-child {
-        margin-top: 0;
-    }
-    :last-child {
-        margin-bottom: 0;
-    }
-
-    p:last-child {
-        font-size: 0.9em;
-    }
-
-    .list-image img {
-        max-height: 200px;
-        max-width: 200px;
-    }
-
-    @media screen and (min-width: $responsive-breakpoint) {
-        .list-image {
-            float: left;
-            margin-right: 1em;
+        text-decoration: none;
+        width: 100%;
+    
+        &:hover {
+            text-decoration: none;
+        }
+    
+        &::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+    
+        :first-child {
+            margin-top: 0;
+        }
+        :last-child {
+            margin-bottom: 0;
+        }
+    
+        p:last-child {
+            font-size: 0.9em;
+        }
+    
+        .list-image img {
             max-height: 200px;
-            position: relative;
-            width: 200px;
-
-            img {
-                object-fit: contain;
+            max-width: 200px;
+        }
+    
+        @media screen and (min-width: $responsive-breakpoint) {
+            .list-image {
+                float: left;
+                margin-right: 1em;
+                max-height: 200px;
+                position: relative;
+                width: 200px;
+    
+                img {
+                    object-fit: contain;
+                }
             }
         }
     }
