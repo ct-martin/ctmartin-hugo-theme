@@ -8,7 +8,7 @@ description = ""
 homepage = "https://github.com/ct-martin/ctmartin-hugo-theme"
 tags = []
 features = []
-min_version = "0.62"
+min_version = "0.74"
 
 [author]
   name = "CTMartin"
