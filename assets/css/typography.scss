@@ -29,8 +29,10 @@ h5 { font-size: 1em; }
 h6 { font-size: 0.8em; }
 
 ol, ul {
+    margin-bottom: 1em;
     margin-left: 40px; // browser default pre-reset
     //margin-left: 1.4em; // playing with for more condensed feel
+    margin-top: 1em;
 }
 
 ol {
