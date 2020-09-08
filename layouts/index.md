@@ -2,7 +2,11 @@
 {{ .RawContent }}
 Recent Content:
 {{- range first 5 .Site.RegularPages }}
+{{- if .Permalink }}
+  * [{{ printf "%s" (partial "section-emoji" .) }}{{ .Title }}{{ with .Date }} ({{.Format "2 Jan, 2006"}}){{ end }}]({{ .Permalink }})
+{{- else }}
   * {{ printf "%s" (partial "section-emoji" .) }}{{ .Title }}{{ with .Date }} ({{.Format "2 Jan, 2006"}}){{ end }}
+{{- end }}
 {{- end }}
 {{- with .Site.Params.readme_github_stats_username }}
 
