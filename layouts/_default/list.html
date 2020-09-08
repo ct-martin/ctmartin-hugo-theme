@@ -1,9 +1,19 @@
 {{ define "main" }}
     <h1>{{.Title}}</h1>
     {{ .Content }}
+    {{ with .Sections }}
+    <h2>Subsections</h2>
+    <ul>
+        {{ range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+    {{ end }}
     <h2>Latest Posts</h2>
     {{ range .Paginator.Pages }}
         {{ .Render "li" }}
+    {{ else }}
+        <p>No content here :(</p>
     {{ end }}
     {{ template "_internal/pagination.html" . }}
 {{ end }}
