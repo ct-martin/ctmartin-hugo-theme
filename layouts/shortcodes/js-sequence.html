@@ -1,0 +1,2 @@
+<div id="js-sequence-{{ .Get "id" | default .Ordinal }}">{{ .Inner }}</div>
+<script>window.addEventListener('load', () => { const container = document.querySelector('#js-sequence-{{ .Get "id" | default .Ordinal }}'); const code = container.textContent; container.innerHTML = ''; const chart = Diagram.parse(code); chart.drawSVG('js-sequence-{{ .Get "id" | default .Ordinal }}', {theme:'{{ .Get "theme" | default "simple" }}'}); });</script>

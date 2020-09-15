@@ -1,0 +1,2 @@
+<div id="flowchartjs-{{ .Get "id" | default .Ordinal }}">{{ .Inner }}</div>
+<script>window.addEventListener('load', () => { const container = document.querySelector('#flowchartjs-{{ .Get "id" | default .Ordinal }}'); const code = container.textContent; const chart = flowchart.parse(code); container.innerHTML = ''; chart.drawSVG(container); });</script>

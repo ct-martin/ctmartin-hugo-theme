@@ -1,2 +1,2 @@
-<div id="vega-{{ .Get "id" }}"></div>
-<script>vegaEmbed('#vega-{{ .Get "id" }}', {{ .Inner | safeJS }})</script>
+<div id="vega-{{ .Get "id" | default .Ordinal }}">{{ .Inner }}</div>
+<script>window.addEventListener('load', () => { const container = document.querySelector('#vega-{{ .Get "id" | default .Ordinal }}'); const code = JSON.parse(container.textContent); container.innerHTML = ''; vegaEmbed(container, code); });</script>

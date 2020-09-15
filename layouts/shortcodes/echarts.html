@@ -1,0 +1,2 @@
+<div id="echarts-{{ .Get "id" | default .Ordinal }}" style="width:100%;min-height:400px;">{{ .Inner }}</div>
+<script>window.addEventListener('load', () => { const container = document.querySelector('#echarts-{{ .Get "id" | default .Ordinal }}'); const code = JSON.parse(container.textContent); container.innerHTML = ''; const chart = echarts.init(container); chart.setOption(code); });</script>
