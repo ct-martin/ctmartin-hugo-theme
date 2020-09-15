@@ -12,3 +12,6 @@
         {{- with .Date }}<p><i>{{.Format "2 Jan, 2006"}}</i></p>{{ end }}
     </article>
 {{ end }}
+{{ define "aside" }}
+    {{ partial "layout/page-related" . }}
+{{ end }}
