@@ -1,0 +1,4 @@
+{{/*
+<div id="yuml-{{ .Get "id" | default .Ordinal }}"></div>
+<script>window.addEventListener('load', () => { const container = document.querySelector('#yuml-{{ .Get "id" | default .Ordinal }}'); const code = {{ .Inner }}; console.dir(code); const yuml = new yuml_diagram(); console.dir(yuml); const svg = yuml.processYumlDocument(code, false); console.dir(svg); container.innerHTML = svg; });</script>
+*/}}

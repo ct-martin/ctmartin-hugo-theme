@@ -1,0 +1,4 @@
+{{/*
+<div id="dagre-{{ .Get "id" | default .Ordinal }}">{{ .Inner }}</div>
+<script>window.addEventListener('load', () => { const container = document.querySelector('#dagre-{{ .Get "id" | default .Ordinal }}'); const code = container.textContent; const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); container.innerHTML = ''; container.appendChild(svg); const g = graphlibDot.read(code); console.dir(g); const render = dagreD3.render(); d3.select(svg).call(render, g)});</script>
+*/}}
