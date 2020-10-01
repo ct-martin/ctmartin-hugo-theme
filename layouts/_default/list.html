@@ -10,7 +10,7 @@
     </ul>
     {{ end }}
     <h2>Latest Posts</h2>
-    {{ range .Paginator.Pages }}
+    {{ range (.Paginate .RegularPagesRecursive).Pages }}
         {{ .Render "li" }}
     {{ else }}
         <p>No content here :(</p>

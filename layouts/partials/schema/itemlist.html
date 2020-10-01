@@ -1,5 +1,5 @@
 {{ $ld := dict "@type" "ItemList" "url" .Permalink }}
-{{ $pages := (cond (eq .Kind "home") .Site.RegularPages .RegularPages)}}
+{{ $pages := (cond (eq .Kind "home") .Site.RegularPages .RegularPagesRecursive)}}
 {{ $ld = merge $ld (dict "numberOfItems" (len $pages)) }}
 {{ $items := slice }}
 {{ range $i, $pg := $pages }}
