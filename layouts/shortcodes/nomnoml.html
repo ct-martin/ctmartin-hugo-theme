@@ -1,2 +1,3 @@
-<div id="nomnoml-{{ .Get "id" | default .Ordinal }}"></div>
-<script>window.addEventListener('load', () => { const container = document.querySelector('#nomnoml-{{ .Get "id" | default .Ordinal }}'); const code = `{{ .Inner | safeJS}}`; const canvas = document.createElement('canvas'); container.appendChild(canvas); nomnoml.draw(canvas, code); });</script>
+{{- $id := printf "nomnoml-%s" (.Get "id" | default .Ordinal) -}}
+<div id="{{ $id }}"></div>
+<script>window.addEventListener('load', () => { const canvas = document.createElement('canvas'); document.getElementById({{ $id }}).appendChild(canvas); nomnoml.draw(canvas, {{ .Inner }}); });</script>

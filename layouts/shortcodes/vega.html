@@ -1,2 +1,3 @@
-<div id="vega-{{ .Get "id" | default .Ordinal }}">{{ .Inner }}</div>
-<script>window.addEventListener('load', () => { const container = document.querySelector('#vega-{{ .Get "id" | default .Ordinal }}'); const code = JSON.parse(container.textContent); container.innerHTML = ''; vegaEmbed(container, code); });</script>
+{{- $id := printf "vega-%s" (.Get "id" | default .Ordinal) -}}
+<div id="{{ $id }}"></div>
+<script>window.addEventListener('load', () => { vegaEmbed(document.getElementById({{ $id }}), JSON.parse({{ .Inner }})); });</script>
