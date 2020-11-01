@@ -7,10 +7,12 @@
             {{ partial "schema-jsonld" (dict "schema" "webpage" "page" .) | safeJS }}
         {{- end -}}
         </script>
-        {{- with (union (.Site.Params.libs) (.Param "libs")) }}
-        {{- range . }}
-            {{ partial (printf "vis/%s.html" .) }}
-        {{- end -}}
+        {{- with . -}}
+            {{/* Create a new scope level */}}
+            {{- $page := . -}}
+            {{- range $lib := (union (.Site.Params.libs) (.Param "libs")) }}
+                {{ partial (printf "vis/%s.html" $lib) $page }}
+            {{- end -}}
         {{- end -}}
         {{- range .Resources.Match "*.css" }}
             <link rel="stylesheet" href="{{ .RelPermalink }}">
