@@ -1,5 +1,11 @@
 ### {{ .Title }}
-{{ .RawContent }}
+{{/*
+  Ensure that all URLs have the BaseURL since this Markdown file can appear in places other than the website, e.g. GitHub Profile
+  URLs without the BaseURL are found by looking for a URL starting with `/` (so URLs to other sites will not be affected).
+  This isn't a very robust method since it won't capture relative URLs without a leading slash.
+  However, since we're looking to output Markdown, we can't use Render Hooks like usual.
+*/}}
+{{ replace .RawContent "](/" (printf "](%s/" (strings.TrimRight "/" .Page.Site.BaseURL)) }}
 {{ if .Site.Params.titleEmojis }}📰 {{ end }}Recent Content:
 {{- range first 5 .Site.RegularPages }}
 {{- if .Permalink }}
