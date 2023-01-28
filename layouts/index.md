@@ -6,6 +6,7 @@
   However, since we're looking to output Markdown, we can't use Render Hooks like usual.
 */}}
 {{ replace .RawContent "](/" (printf "](%s/" (strings.TrimRight "/" .Page.Site.BaseURL)) }}
+{{/*
 {{ if .Site.Params.titleEmojis }}📰 {{ end }}Recent Content:
 {{- range first 5 .Site.RegularPages }}
 {{- if .Permalink }}
@@ -14,6 +15,7 @@
   * {{ printf "%s" (partial "section-emoji" .) }}{{ .Title }}{{ with .Date }} ({{.Format "2 Jan, 2006"}}){{ end }}
 {{- end }}
 {{- end }}
+/*}}
 {{- with .Site.Params.readme_github_stats_username }}
 
 <!-- Stats badges -->
