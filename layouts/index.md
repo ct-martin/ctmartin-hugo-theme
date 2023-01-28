@@ -15,7 +15,6 @@
   * {{ printf "%s" (partial "section-emoji" .) }}{{ .Title }}{{ with .Date }} ({{.Format "2 Jan, 2006"}}){{ end }}
 {{- end }}
 {{- end }}
-*/}}
 {{- with .Site.Params.readme_github_stats_username }}
 
 <!-- Stats badges -->
@@ -25,3 +24,4 @@
 
 This README was auto-generated! [See the code here]({{ .Site.Params.sourceurl }})
 {{- end }}
+*/}}
